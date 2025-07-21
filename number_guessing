@@ -1,0 +1,27 @@
+# number_guessing.py
+
+import random
+
+number = random.randint(1, 10)
+chances = 3
+
+print("🎯 Welcome to the Number Guessing Game!")
+print("I'm thinking of a number between 1 and 10.")
+print(f"You have {chances} chances. Let's begin!")
+
+while chances > 0:
+    try:
+        guess = int(input("Guess the number: "))
+    except ValueError:
+        print("⚠️ Please enter a valid number.")
+        continue
+
+    if guess == number:
+        print("🎉 Correct! You guessed it!")
+        break
+    else:
+        chances -= 1
+        if chances > 0:
+            print(f"❌ Wrong! Try again. {chances} chances left.")
+        else:
+            print(f"💀 Game Over! The correct number was {number}.")
